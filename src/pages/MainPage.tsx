@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import useSWR from "swr";
 
-function App() {
+export default function MainPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error } = useSWR(
     "https://jsonplaceholder.typicode.com/todos",
@@ -20,8 +21,7 @@ function App() {
           </div>
         ))}
       </div>
+      <Link to="/second">Go to Second Page</Link>
     </>
   );
 }
-
-export default App;
