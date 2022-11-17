@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import useSWR from "swr";
 
 function App() {
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data, error } = useSWR(
+    "https://jsonplaceholder.typicode.com/todos",
+    fetcher
+  );
+
+  if (error) return <div>error occured</div>;
+  if (!data) return <div>loading...</div>;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>Data List</div>
+      <div>
+        {data.map((item: any) => (
+          <div key={item.id}>
+            <div>{item.title}</div>
+            <div>{item.completed}</div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
