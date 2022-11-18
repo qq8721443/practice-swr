@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import SecondPage from "./pages/SecondPage";
+import PreloadTestPage from "./pages/PreloadTestPage";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/second",
     element: <SecondPage />,
+  },
+  {
+    path: "/preload",
+    element: <PreloadTestPage />,
   },
 ]);
 
