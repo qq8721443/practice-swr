@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import SecondPage from "./pages/SecondPage";
 import PreloadTestPage from "./pages/PreloadTestPage";
+import InfiniteScrollPage from "./pages/InfiniteScrollPage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/preload",
     element: <PreloadTestPage />,
+  },
+  {
+    path: "/infinite",
+    element: <InfiniteScrollPage />,
   },
 ]);
 
